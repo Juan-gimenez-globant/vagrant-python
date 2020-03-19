@@ -1,13 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-git clone git://github.com/yyuu/pyenv.git ~/.pyenv
-cd ~/.pyenv/plugins
-git clone git://github.com/yyuu/pyenv-virtualenv.git
-pyenv install 3.7.2
-pyenv global 3.7.2
-source ~/.bashrc
+curl -sL https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+cat /vagrant/scripts/bashrc_resource >> ~/.bashrc 
+source /vagrant/scripts/bashrc_resource
+pyenv install 3.5.4
+pyenv global 3.5.4
 
 pip install --upgrade pip
-if [ -f /vagrant/scripts/requirements.txt ]; then
-  pip install -r /vagrant/scripts/requirements.txt
-fi
